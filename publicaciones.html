@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="esti_publi.css" />
+    <link rel="icon" type="image/png" href="/imagenes/logo_tra.svg" />
+    <title>Publicaciones - RaízNica</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="logo">
+            <img src="/imagenes/Logo.jpg" alt="Logo Raíz Nica" style="height:40px;">
+            <h1>Raíz Nica</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="/Index_principal/Index.html">Inicio</a></li>
+                <li><a href="/biblioteca/biblioteca.html">Biblioteca</a></li>
+                <li><a href="/juegos/juegos.html">Juegos</a></li>
+                <li><a href="/mapa/mapa.html">Mapa</a></li>
+                <li><a href="/calendario/calendario.html">Calendario cultural</a></li>
+            </ul>
+        </nav>
+        <div class="acciones">
+            <a href="#" class="btn iniciar">Iniciar sesión</a>
+            <a href="#" class="btn registrar">Regístrate</a>
+            <a href="#" class="icono"><img src="/imagenes/tiktok.png" alt="TikTok" /></a>
+            <a href="#" class="icono"><img src="/imagenes/facebook.png" alt="Facebook" /></a>
+            <a href="#" class="icono"><img src="/imagenes/instagram.png" alt="Instagram" /></a>
+        </div>
+    </header>
+
+    <div class="superior">
+        <div class="fondo_superior1"></div>
+        <div class="fondo_superior2"></div>
+        <h2 class="titulo">Publicaciones Recientes</h2>
+
+        <main class="contenido">
+
+            <!--Publicacion estatica (ejemplo)-->
+            <div class="publicacion">
+                <h3 class="titulo_pu">Día de la festividad de San Miguel </h3>
+                <img class="imagen" src="/imagenes_Publi/San_Miguel.jpg" alt="Publicación 1" />
+                <p>Hoy, Masaya amanece llena de alegría y devoción para honrar a San Miguel Arcángel. Desde temprano, la banda filarmónica llena el atrio con su música mientras los fieles se reúnen dentro de la iglesia frente a la imagen del arcángel, con su capa roja, corona dorada y espada. A lo largo del día se celebran misas matutinas y vespertinas, el rezo de la novena se adorna con cantos y danzas folclóricas, y las ofrendas florales y las oraciones compartidas crean un ambiente cálido de fe y tradición.</p>
+                <a href="#" class="leer-mas">Leer más</a>
+
+        <!-- Publicación con comentarios -->
+        <div class="publicacion9">
+            <h3>Título de la publicación</h3>
+            <p>Contenido de la publicación...</p>
+
+            <!-- Sección de comentarios -->
+            <div class="comentarios9" id="comentarios9">
+            </div>
+            <!-- Formulario para escribir comentario -->
+            <div class="form-comentario9">
+                <input type="text" id="comentarioInput9" placeholder="Escribe un comentario...">
+                <button onclick="agregarComentario9()">Comentar</button>
+            </div>
+        </div>
+        
+        </div>
+        </main>
+    </div>
+
+    <!-- Botón flotante abajo -->
+    <button id="btnNuevaPub" class="btn-flotante">+</button>
+
+    <!-- Formulario oculto -->
+    <div id="formNuevaPub" class="form-nueva-publicacion oculto">
+        <div class="tabs">
+            <button class="tab active" data-tab="texto">Texto</button>
+            <button class="tab" data-tab="imagen">Imagen</button>
+            <button class="tab" data-tab="video">Video</button>
+            <button class="tab" data-tab="audio">Audio</button>
+        </div>
+
+        <!-- Campos generales -->
+        <input type="text" id="tituloInput" placeholder="Título de la publicación" />
+        <input type="text" id="ubicacionInput" placeholder="Ubicación (opcional)" />
+        <select id="categoriaInput">
+            <option value="">Seleccionar categoría</option>
+            <option value="tradicion">Tradición</option>
+            <option value="historia">Historia</option>
+            <option value="receta">Receta</option>
+        </select>
+        <textarea id="contenidoInput" placeholder="Cuenta tu historia, tradición, receta o saber popular..."></textarea>
+
+        <!-- Campos según tipo -->
+        <div id="extraImagen" class="extra oculto">
+            <input type="file" id="imagenInput" accept=".jpg,.png" />
+            <small>Formatos: JPG, PNG | Máx: 10MB</small>
+        </div>
+
+        <div id="extraVideo" class="extra oculto">
+            <input type="file" id="videoInput" accept=".mp4,.avi" />
+            <small>Formatos: MP4, AVI | Máx: 50MB</small>
+        </div>
+
+        <div id="extraAudio" class="extra oculto">
+            <input type="file" id="audioInput" accept=".mp3,.wav" />
+            <small>Formatos: MP3, WAV | Máx: 10MB</small>
+        </div>
+
+        <!-- Botones -->
+        <button class="agregar" onclick="agregarPublicacion()">Publicar Relato</button>
+        <button type="button" class="cancelar" onclick="cerrarFormulario()">Cancelar</button>
+    </div>
+
+
+
+<script>
+// Mostrar u ocultar formulario
+document.getElementById("btnNuevaPub").onclick = function() {
+    document.getElementById("formNuevaPub").classList.toggle("oculto");
+};
+
+function cerrarFormulario() {
+    document.getElementById("formNuevaPub").classList.add("oculto");
+}
+
+
+
+const btnFlotante = document.querySelector('.btn-flotante');
+const formulario = document.querySelector('.form-nueva-publicacion');
+
+btnFlotante.addEventListener('click', () => {
+    formulario.classList.toggle('activo');
+});
+
+
+
+// Función para agregar publicación
+function agregarPublicacion() {
+    const titulo = document.getElementById("tituloInput").value.trim();
+    const imagen = document.getElementById("imagenInput").value.trim();
+    const contenido = document.getElementById("contenidoInput").value.trim();
+
+    if (titulo === "" || contenido === "") {
+        alert("El título y el contenido son obligatorios.");
+        return;
+    }
+
+    // Crear contenedor de la publicación
+    const pubDiv = document.createElement("div");
+    pubDiv.className = "publicacion";
+
+    // Botón eliminar publicación
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "Eliminar publicación";
+    btnEliminar.className = "btn-eliminar-pub";
+    btnEliminar.onclick = () => pubDiv.remove();
+
+    // Título
+    const h3 = document.createElement("h3");
+    h3.className = "titulo_pu";
+    h3.textContent = titulo;
+
+    // Imagen opcional
+    let img = null;
+    if (imagen !== "") {
+        img = document.createElement("img");
+        img.className = "imagen";
+        img.src = imagen;
+        img.alt = titulo;
+    }
+
+    // Contenido
+    const p = document.createElement("p");
+    p.textContent = contenido;
+
+    // Leer más
+    const a = document.createElement("a");
+    a.href = "#";
+    a.className = "leer-mas";
+    a.textContent = "Leer más";
+
+    // Sección de comentarios (igual que antes)
+    const pubComentarios = document.createElement("div");
+    pubComentarios.className = "publicacion9";
+
+    const comentariosDiv = document.createElement("div");
+    comentariosDiv.className = "comentarios9";
+    comentariosDiv.id = "comentarios" + Date.now();
+
+    const formComentario = document.createElement("div");
+    formComentario.className = "form-comentario9";
+
+    const inputCom = document.createElement("input");
+    inputCom.type = "text";
+    inputCom.placeholder = "Escribe un comentario...";
+    inputCom.id = "input_" + Date.now();
+
+    const btnCom = document.createElement("button");
+    btnCom.textContent = "Comentar";
+    btnCom.onclick = function() {
+        const texto = inputCom.value.trim();
+        if (texto !== "") {
+            const div = document.createElement("div");
+            div.className = "comentario9 oculto9";
+
+            const span = document.createElement("span");
+            span.textContent = texto;
+
+            const btnEliminar = document.createElement("button");
+            btnEliminar.textContent = "Eliminar";
+            btnEliminar.className = "btn-eliminar";
+            btnEliminar.onclick = () => div.remove();
+
+            div.appendChild(span);
+            div.appendChild(btnEliminar);
+            comentariosDiv.appendChild(div);
+            setTimeout(() => div.classList.remove("oculto9"), 50);
+            inputCom.value = "";
+        }
+    };
+
+    formComentario.appendChild(inputCom);
+    formComentario.appendChild(btnCom);
+
+    pubComentarios.appendChild(comentariosDiv);
+    pubComentarios.appendChild(formComentario);
+
+    // Agregar todo al contenedor de publicación
+    pubDiv.appendChild(btnEliminar);
+    pubDiv.appendChild(h3);
+    if (img) pubDiv.appendChild(img);
+    pubDiv.appendChild(p);
+    pubDiv.appendChild(a);
+    pubDiv.appendChild(pubComentarios);
+
+    // Agregar al main
+    document.querySelector(".contenido").appendChild(pubDiv);
+
+    // Limpiar formulario y cerrar
+    document.getElementById("tituloInput").value = "";
+    document.getElementById("imagenInput").value = "";
+    document.getElementById("contenidoInput").value = "";
+    cerrarFormulario();
+}
+
+
+
+
+function agregarComentario9() {
+    const input = document.getElementById("comentarioInput9");
+    const texto = input.value.trim();
+    if (texto !== "") {
+        // Crear contenedor del comentario
+        const div = document.createElement("div");
+        div.className = "comentario9 oculto9";
+
+        // Crear elemento de texto
+        const span = document.createElement("span");
+        span.textContent = texto;
+
+        // Crear botón de eliminar
+        const btnEliminar = document.createElement("button");
+        btnEliminar.textContent = "Eliminar";
+        btnEliminar.className = "btn-eliminar";
+        btnEliminar.onclick = () => {
+            div.remove(); // Elimina el comentario
+        };
+
+        // Agregar texto y botón al div del comentario
+        div.appendChild(span);
+        div.appendChild(btnEliminar);
+
+        // Agregar comentario al contenedor
+        document.getElementById("comentarios9").appendChild(div);
+
+        // Forzar animación con pequeño retraso
+        setTimeout(() => {
+            div.classList.remove("oculto9");
+        }, 50);
+
+        input.value = "";
+    }
+}
+
+
+
+// Mostrar/ocultar formulario al presionar +
+document.getElementById("btnNuevaPub").onclick = function() {
+    document.getElementById("formNuevaPub").classList.toggle("oculto");
+};
+
+function cerrarFormulario() {
+    document.getElementById("formNuevaPub").classList.add("oculto");
+}
+
+// Control de tabs
+document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        btn.classList.add("active");
+
+        document.querySelectorAll(".extra").forEach(e => e.classList.add("oculto"));
+        if (btn.dataset.tab === "imagen") document.getElementById("extraImagen").classList.remove("oculto");
+        if (btn.dataset.tab === "video") document.getElementById("extraVideo").classList.remove("oculto");
+        if (btn.dataset.tab === "audio") document.getElementById("extraAudio").classList.remove("oculto");
+
+        // Guardar tipo actual
+        document.getElementById("formNuevaPub").dataset.tipo = btn.dataset.tab;
+    });
+});
+
+// Agregar publicación
+function agregarPublicacion() {
+    const titulo = document.getElementById("tituloInput").value.trim();
+    const contenido = document.getElementById("contenidoInput").value.trim();
+    const tipo = document.getElementById("formNuevaPub").dataset.tipo || "texto";
+
+    if (titulo === "" || contenido === "") {
+        alert("El título y el contenido son obligatorios.");
+        return;
+    }
+
+    const pubDiv = document.createElement("div");
+    pubDiv.className = "publicacion";
+
+    const btnEliminar = document.createElement("button");
+    btnEliminar.textContent = "Eliminar publicación";
+    btnEliminar.className = "btn-eliminar-pub";
+    btnEliminar.onclick = () => pubDiv.remove();
+
+    const h3 = document.createElement("h3");
+    h3.className = "titulo_pu";
+    h3.textContent = titulo;
+
+    const p = document.createElement("p");
+    p.textContent = contenido;
+
+    // Multimedia según tipo
+    let media = null;
+    if (tipo === "imagen") {
+        const file = document.getElementById("imagenInput").files[0];
+        if (file && file.size <= 10 * 1024 * 1024) {
+            media = document.createElement("img");
+            media.className = "imagen";
+            media.src = URL.createObjectURL(file);
+        } else if (file) {
+            alert("La imagen supera los 10MB.");
+            return;
+        }
+    }
+    if (tipo === "video") {
+        const file = document.getElementById("videoInput").files[0];
+        if (file && file.size <= 50 * 1024 * 1024) {
+            media = document.createElement("video");
+            media.controls = true;
+            media.src = URL.createObjectURL(file);
+            media.style.maxWidth = "100%";
+        } else if (file) {
+            alert("El video supera los 50MB.");
+            return;
+        }
+    }
+    if (tipo === "audio") {
+        const file = document.getElementById("audioInput").files[0];
+        if (file && file.size <= 10 * 1024 * 1024) {
+            media = document.createElement("audio");
+            media.controls = true;
+            media.src = URL.createObjectURL(file);
+        } else if (file) {
+            alert("El audio supera los 10MB.");
+            return;
+        }
+    }
+
+    // Armar publicación
+    pubDiv.appendChild(btnEliminar);
+    pubDiv.appendChild(h3);
+    if (media) pubDiv.appendChild(media);
+    pubDiv.appendChild(p);
+
+    document.querySelector(".contenido").appendChild(pubDiv);
+
+    // Resetear
+    document.getElementById("tituloInput").value = "";
+    document.getElementById("contenidoInput").value = "";
+    document.getElementById("imagenInput").value = "";
+    document.getElementById("videoInput").value = "";
+    document.getElementById("audioInput").value = "";
+    cerrarFormulario();
+}
+
+</script>
+
+</body>
+</html>
