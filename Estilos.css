@@ -1,0 +1,595 @@
+/* ===== Estilo general del sitio ===== */
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Contenedor general y fondos decorativos superiores */
+.superior {
+    position: relative;
+    z-index: 1;
+}
+
+.fondo_superior1 {
+    position: absolute;
+    top: -20%;
+    left: -50%;
+    width: 1500px;
+    height: 1000px;
+    background: radial-gradient(closest-side, #a6ffac 50%, #ffffff69 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.fondo_superior2 {
+    position: absolute;
+    top: 0;
+    left: 700px;
+    width: 1500px;
+    height: 1000px;
+    background: radial-gradient(closest-side, #ffb477 0%, #ffffff69 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* fondos decorativos inferiores */
+.inferior {
+    position: relative;
+    z-index: 1;
+}
+
+.fondo_inferior1 {
+    position: absolute;
+    bottom: -700px; /* Más abajo */
+    left: -60%;
+    width: 1500px;
+    height: 1000px;
+    background: radial-gradient(closest-side, #a6ffac 50%, #ffffff69 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.fondo_inferior2 {
+    position: absolute;
+    bottom: -700px; /* Más abajo */
+    left: 60%;
+    width: 1500px;
+    height: 1000px;
+    background: radial-gradient(closest-side, #ffb477 0%, #ffffff69 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+/* ===== Encabezado principal con logo y menú ===== */
+.encabezado {
+    position: relative;
+    z-index: 2;
+    left: -100px;
+    color: #333;
+    padding:0 260px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: auto;
+}
+
+.logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+/* Menú de navegación */
+.menu ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.menu ul li a {
+    font-size: 1.08rem;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 4px 0;
+    display: inline-block;
+}
+.menu ul li a:hover {
+    color: #009688;
+    border-bottom: 2px solid #009688;
+}
+
+/* ===== Banner principal ===== */
+.banner-principal {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    margin: 30px auto 20px auto;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== Colaboradores Claves ===== */
+.colaboradores {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.colaboradores h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.colaboradores .logos-colaboradores img {
+    height: 80px;
+    width: auto;
+    padding:10px 10px;
+}
+
+/* ===== Funciones Claves ===== */
+.funciones-claves {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.funciones-globales {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 16px;
+}
+
+.funciones-globales > .card {
+    background-color: #fff;
+    padding: 30px 22px;
+    border-radius: 18px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    min-width: 220px;
+    max-width: 260px;
+    display: flex;
+    text-align: left;
+    line-height: 2rem;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.funciones-globales > .card a,
+.funciones-globales > .card a:link,
+.funciones-globales > .card a:visited,
+.funciones-globales > .card a:hover,
+.funciones-globales > .card a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.funciones-globales > div > img {
+    height: 48px;
+    margin-bottom: 18px;
+}
+
+.funciones-globales .card:hover{
+    color: white;
+    background-color: #004d40;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+/* ===== Secciones y pie de página ===== */
+.bienvenida {
+    background-color: #e0f2f1;
+    padding: 30px;
+    text-align: center;
+}
+
+.publicaciones {
+    padding: 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.juegos {
+    padding: 20px;
+    background-color: #f1f8e9;
+    text-align: center;
+}
+
+.biblioteca {
+    padding: 20px;
+    background-color: #fffde7;
+    text-align: center;
+}
+
+/* Sección Nosotros */
+.nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    padding: 40px 0;
+    border-radius: 18px;
+    margin: 32px auto;
+    width: 90%;
+}
+
+.somo {
+    flex: 1;
+    min-width: 260px;
+    z-index: 2;
+}
+
+.somo h2 {
+    font-size: 30px;
+    margin-bottom: 12px;
+    color: #222;
+    font-weight: bolder;
+}
+
+.somo p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.grupo {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.grupo img {
+    width: 70%;
+    border-radius: 12px;
+}
+
+/* ===== Botones y acciones ===== */
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn.iniciar {
+    background: #e0f2f1;
+    color: #00796b;
+    border: none;
+}
+
+.btn.registrar {
+    background: #ffb300;
+    color: #fff;
+    border: none;
+}
+
+.btn.iniciar:hover {
+    background: #b2dfdb;
+}
+
+.btn.registrar:hover {
+    background: #ffa000;
+}
+
+/* ===== Iconos sociales ===== */
+.icono img {
+    height: 40px;
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/*===computadoras===*/
+.compu {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compu-globales {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 500%;
+    font-size: 16px;
+    padding-bottom: 250px;
+}
+
+.compu-globales > .comp {
+    display: flex;
+    text-align: left;
+    line-height: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.compu-globales > div > img {
+    height: 300px;
+    margin-bottom: 18px;
+}
+
+.inferior_com1 {
+    position: relative;
+    z-index: 1;
+    left: 135px;
+    bottom: -1px;
+    width: 85%;
+}
+.inferior_com2 {
+    position: relative;
+    z-index: 1;
+    left: -135px;
+    bottom: -2px;
+    width: 85%;
+}
+.superior_com {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.tex1{
+    position: relative;
+    z-index: 2;
+    bottom: -40px;
+    left: 135px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.tex2{
+    position: relative;
+    z-index: 2;
+    bottom: -40px;
+    left: -135px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.text-cen{
+    position: relative;
+    z-index: 2;
+    bottom: -12px;
+    text-align: center;
+    font-size: 15px;
+}
+
+/*pie de pagina*/
+.pie_pagina {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(90deg, #147217, #c07c23);
+    color: white;
+    padding: 60px 20px;
+}
+
+.pie_pagina .contenedor_pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    gap: 90px;
+}
+
+.pie_pagina h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.pie_pagina p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* ===== Objetivos ===== */
+.objetivos {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* ===== Contactos ===== */
+.contactos {
+    flex: 1;
+    min-width: 250px;
+}
+
+.contactos .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.contactos .info img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+/* ===== Redes Sociales ===== */
+.redes_sociales {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.redes_sociales .icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.redes_sociales img {
+    width: 28px;
+    transition: transform 0.3s ease;
+}
+
+.redes_sociales img:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* Modal de registro/inicio de sesión */
+.modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-contenido {
+    background: #fff;
+    padding: 12px 25px;
+    border-radius: 5%;
+    width: 450px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    position: relative;
+    animation: modalShow 0.3s;
+}
+
+@keyframes modalShow {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 28px;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.cerrar:hover {
+    color: #e74c3c;
+}
+
+.modal-contenido h2 {
+    margin-bottom: 18px;
+    font-size: 1.3em;
+    color: #333;
+    text-align: center;
+}
+
+.modal-contenido form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-contenido label {
+    font-size: 0.98em;
+    color: #444;
+    margin-bottom: 2px;
+}
+
+.modal-contenido input,
+.modal-contenido select {
+    padding: 7px 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    outline: none;
+}
+
+.btn-modal {
+    background: #2e8b57;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+.btn-modal:hover {
+    background: #226644;
+}
+
+.social-login {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-google, .btn-facebook {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+.btn-google {
+    background: #db4437;
+    color: #fff;
+}
+.btn-google:hover {
+    background: #b33124;
+}
+.btn-facebook {
+    background: #1877f2;
+    color: #fff;
+}
+.btn-facebook:hover {
+    background: #145db2;
+}
